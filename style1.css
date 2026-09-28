@@ -1,0 +1,1316 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: #020202;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #020202;
+  color: #f8f2df;
+
+  font-family: "DM Sans", sans-serif;
+
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   NOISE
+========================================================= */
+
+.noise {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  pointer-events: none;
+
+  opacity: .045;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   GOLD AURA
+========================================================= */
+
+.gold-aura {
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: #d9a62e;
+
+  filter: blur(180px);
+
+  opacity: .045;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+.aura-one {
+  top: -250px;
+  left: -200px;
+}
+
+.aura-two {
+  right: -250px;
+  bottom: -250px;
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music-control {
+  position: fixed;
+
+  top: 22px;
+  right: 22px;
+
+  z-index: 9000;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  color: #e7c76b;
+
+  background: rgba(10, 10, 10, .75);
+
+  border: 1px solid rgba(212, 171, 66, .35);
+
+  border-radius: 999px;
+
+  backdrop-filter: blur(15px);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+
+  transition: .3s ease;
+}
+
+.music-control:hover {
+  border-color: #d9ad42;
+
+  box-shadow:
+    0 0 30px rgba(216, 171, 55, .12);
+}
+
+.music-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #dcb54f;
+
+  box-shadow:
+    0 0 10px #dcb54f;
+}
+
+
+/* =========================================================
+   CURTAINS
+========================================================= */
+
+.curtain-intro {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 5000;
+
+  background: #020202;
+
+  overflow: hidden;
+}
+
+.red-curtain {
+  position: absolute;
+
+  top: 0;
+
+  width: 53%;
+  height: 100%;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #170104 0px,
+      #3a050d 20px,
+      #710d20 40px,
+      #2a0309 65px,
+      #570914 88px,
+      #180205 115px
+    );
+
+  box-shadow:
+    inset 0 0 100px rgba(0,0,0,.9);
+
+  will-change: transform;
+}
+
+.red-curtain::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.75),
+      transparent 45%,
+      rgba(255,40,80,.06),
+      rgba(0,0,0,.8)
+    );
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: left center;
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: right center;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+#main {
+  width: 100%;
+  opacity: 0;
+}
+
+
+/* =========================================================
+   AGE SCREEN
+========================================================= */
+
+.age-stage {
+  position: relative;
+
+  width: 100%;
+  height: 100svh;
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  background: #000;
+
+  overflow: hidden;
+}
+
+.neon-halo {
+  position: absolute;
+
+  width: min(45vw, 500px);
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background: #d8a52e;
+
+  filter: blur(170px);
+
+  opacity: .06;
+}
+
+.age-wrapper {
+  position: relative;
+
+  width: min(70vw, 650px);
+  height: min(55vh, 500px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1000px;
+
+  z-index: 2;
+}
+
+.age-number {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(170px, 28vw, 430px);
+
+  line-height: .7;
+
+  font-weight: 900;
+
+  color: #ffe36e;
+
+  text-shadow:
+    0 0 5px #fff1a0,
+    0 0 15px #e6bd39,
+    0 0 35px #d99d13,
+    0 0 70px rgba(214, 157, 20, .8),
+    0 0 130px rgba(214, 157, 20, .35);
+
+  user-select: none;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+.age-number-19 {
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.25)
+    rotateX(90deg);
+
+  filter: blur(15px);
+
+  color: #fff1a1;
+
+  text-shadow:
+    0 0 6px #fff,
+    0 0 15px #ffdf59,
+    0 0 35px #e1ac22,
+    0 0 80px #d59b16,
+    0 0 150px rgba(211, 151, 16, .7);
+}
+
+.click-hint {
+  position: absolute;
+
+  bottom: 12%;
+
+  color: rgba(239, 205, 103, .6);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .35em;
+
+  animation: hintPulse 1.7s ease-in-out infinite;
+
+  z-index: 5;
+}
+
+@keyframes hintPulse {
+
+  0%,
+  100% {
+    opacity: .3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   SHARDS
+========================================================= */
+
+.shard-container {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 10;
+}
+
+.shard {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: var(--size);
+  height: var(--size);
+
+  background: var(--gold);
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 12px var(--gold),
+    0 0 30px rgba(255,190,40,.35);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--rotation));
+}
+
+
+/* =========================================================
+   BIRTHDAY MESSAGE
+========================================================= */
+
+.birthday-section {
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    clamp(80px, 10vw, 130px)
+    clamp(18px, 6vw, 70px);
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(177, 126, 20, .08),
+      transparent 38%
+    );
+
+  text-align: center;
+}
+
+.birthday-content {
+  width: min(850px, 100%);
+}
+
+.gold-kicker {
+  color: #d6ac45;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: .38em;
+
+  margin-bottom: 25px;
+}
+
+.birthday-heading {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(48px, 8vw, 105px);
+
+  line-height: .9;
+
+  letter-spacing: -.05em;
+
+  color: #f8f3e3;
+}
+
+.birthday-heading span {
+  display: block;
+
+  color: #dcb54f;
+
+  text-shadow:
+    0 0 25px rgba(215, 172, 67, .2);
+}
+
+.gold-divider {
+  width: 75px;
+  height: 1px;
+
+  margin: 38px auto;
+
+  background: #d5aa42;
+
+  box-shadow:
+    0 0 15px rgba(215, 170, 60, .6);
+}
+
+.birthday-message {
+  width: min(700px, 100%);
+
+  margin: auto;
+
+  color: #a99f88;
+
+  font-size: clamp(13px, 1.3vw, 16px);
+
+  line-height: 1.9;
+}
+
+.birthday-message p {
+  margin-bottom: 23px;
+}
+
+.birthday-message strong {
+  color: #e4c968;
+}
+
+.gold-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 25px;
+
+  margin-top: 25px;
+
+  min-height: 52px;
+
+  padding: 0 25px;
+
+  color: #0b0904;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0a2,
+      #d7ad42
+    );
+
+  border: 0;
+
+  border-radius: 10px;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: .12em;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.gold-button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 45px rgba(211, 167, 56, .22);
+}
+
+.gold-button i {
+  font-style: normal;
+
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   COLLECTION
+========================================================= */
+
+.collection-section {
+  min-height: 100svh;
+
+  padding:
+    100px
+    clamp(16px, 3vw, 40px)
+    130px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(178, 132, 28, .08),
+      transparent 35%
+    );
+}
+
+.collection-header {
+  width: min(1250px, 100%);
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.collection-pill {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 15px;
+
+  border:
+    1px solid
+    rgba(217, 174, 64, .35);
+
+  border-radius: 999px;
+
+  color: #d9b454;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .2em;
+}
+
+.collection-pill span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #e1b843;
+
+  box-shadow:
+    0 0 10px #e1b843;
+}
+
+.collection-header h2 {
+  margin-top: 30px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(45px, 7vw, 90px);
+
+  line-height: .9;
+
+  letter-spacing: -.05em;
+
+  color: #f6f0df;
+}
+
+.collection-header h2 em {
+  display: block;
+
+  color: #d7af48;
+
+  font-style: normal;
+}
+
+.collection-header p {
+  margin-top: 22px;
+
+  color: #7e7767;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   WEBSITE GRID
+========================================================= */
+
+.website-grid {
+  width: min(1280px, 100%);
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.website-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(213, 169, 55, .22);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #11100c,
+      #070706
+    );
+
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    border-color .4s ease,
+    box-shadow .4s ease;
+
+  transform-style: preserve-3d;
+}
+
+.website-card:hover {
+  border-color:
+    rgba(226, 183, 68, .65);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.55),
+    0 0 30px rgba(212, 163, 45, .07);
+}
+
+
+/* =========================================================
+   CARD PREVIEW
+========================================================= */
+
+.card-preview {
+  position: relative;
+
+  height: 235px;
+
+  overflow: hidden;
+
+  background: #090907;
+}
+
+.card-number {
+  position: absolute;
+
+  top: 13px;
+  left: 13px;
+
+  z-index: 3;
+
+  min-width: 40px;
+
+  padding: 8px 9px;
+
+  text-align: center;
+
+  color: #e8cd78;
+
+  background: rgba(7,7,5,.9);
+
+  border:
+    1px solid
+    rgba(220, 175, 62, .3);
+
+  border-radius: 8px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+.card-tag {
+  position: absolute;
+
+  top: 13px;
+  right: 13px;
+
+  z-index: 3;
+
+  padding: 8px 10px;
+
+  color: #d6b657;
+
+  background: rgba(7,7,5,.9);
+
+  border:
+    1px solid
+    rgba(220, 175, 62, .3);
+
+  border-radius: 7px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: .1em;
+}
+
+.preview-text {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #5d594e;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .2em;
+}
+
+
+/* =========================================================
+   FIRST CARD SPECIAL
+========================================================= */
+
+.preview-birthday {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255,215,100,.12),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      #17130a,
+      #050504
+    );
+}
+
+.preview-big-text {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(48px, 5vw, 75px);
+
+  line-height: .75;
+
+  text-align: center;
+
+  color: #e9d98e;
+
+  text-shadow:
+    0 0 15px rgba(220, 180, 70, .25);
+}
+
+.gold-line-preview {
+  position: absolute;
+
+  bottom: 25px;
+
+  width: 170px;
+
+  height: 2px;
+
+  background: #a98229;
+}
+
+
+/* Different cards */
+
+.preview-pink {
+  background:
+    radial-gradient(circle,#5b4520,#0b0905 70%);
+}
+
+.preview-purple {
+  background:
+    radial-gradient(circle,#49391b,#070604 70%);
+}
+
+.preview-blue {
+  background:
+    radial-gradient(circle,#1e3b32,#060806 70%);
+}
+
+.preview-orange {
+  background:
+    radial-gradient(circle,#61471c,#080704 70%);
+}
+
+.preview-green {
+  background:
+    radial-gradient(circle,#254b35,#050805 70%);
+}
+
+.preview-red {
+  background:
+    radial-gradient(circle,#551b20,#080303 70%);
+}
+
+.preview-gold {
+  background:
+    radial-gradient(circle,#866722,#090704 70%);
+}
+
+.preview-dark {
+  background:
+    radial-gradient(circle,#343026,#050504 70%);
+}
+
+.preview-lavender {
+  background:
+    radial-gradient(circle,#453a25,#070604 70%);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content {
+  padding: 21px 19px 19px;
+}
+
+.card-content h3 {
+  color: #f2ead5;
+
+  font-size: 17px;
+
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  min-height: 42px;
+
+  color: #817967;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.view-btn {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 47px;
+
+  margin-top: 19px;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff1a2,
+      #d3a83e
+    );
+
+  color: #100d05;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  transition: .3s ease;
+}
+
+.view-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(213,166,53,.15);
+}
+
+
+/* =========================================================
+   COLLECTION END
+========================================================= */
+
+.collection-end {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  margin-top: 75px;
+}
+
+.end-line {
+  width: 80px;
+
+  height: 1px;
+
+  background: #9f7c2d;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   FINAL CELEBRATION
+========================================================= */
+
+.final-celebration {
+  position: relative;
+
+  width: 100%;
+
+  height: 100svh;
+  min-height: 600px;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #000;
+
+  text-align: center;
+}
+
+#fireworksCanvas {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.celebration-stars {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.9) 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    95px 95px;
+
+  opacity: .16;
+}
+
+.celebration-content {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(900px, 92%);
+
+  padding: 30px 15px;
+}
+
+.celebration-kicker {
+  color: #dcb650;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .4em;
+
+  margin-bottom: 30px;
+}
+
+.celebration-title {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(65px, 12vw, 155px);
+
+  line-height: .72;
+
+  letter-spacing: -.06em;
+
+  color: #f7efd9;
+
+  text-shadow:
+    0 0 20px rgba(218, 177, 67, .12);
+}
+
+.celebration-title span {
+  display: block;
+
+  color: #dcb54c;
+
+  text-shadow:
+    0 0 15px rgba(220, 181, 76, .55),
+    0 0 45px rgba(220, 181, 76, .25);
+}
+
+.celebration-name {
+  margin-top: 38px;
+
+  color: #eee5cc;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  letter-spacing: .65em;
+}
+
+.celebration-rule {
+  width: 70px;
+
+  height: 1px;
+
+  margin: 28px auto;
+
+  background: #cda641;
+}
+
+.celebration-copy {
+  color: #a69b82;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+.celebration-small {
+  margin-top: 14px;
+
+  color: #d5c9aa;
+
+  font-size: 13px;
+}
+
+.replay-button {
+  margin-top: 32px;
+
+  padding: 12px 20px;
+
+  color: #bba467;
+
+  background: rgba(255,255,255,.03);
+
+  border:
+    1px solid
+    rgba(213, 170, 63, .25);
+
+  border-radius: 999px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .18em;
+
+  transition: .3s ease;
+}
+
+.replay-button:hover {
+  color: #fff0af;
+
+  border-color: #d4ad4a;
+
+  box-shadow:
+    0 0 30px rgba(210,165,53,.12);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .website-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .music-control {
+    top: 14px;
+    right: 14px;
+
+    padding: 8px 11px;
+  }
+
+  .age-stage {
+    min-height: 100svh;
+  }
+
+  .age-wrapper {
+    width: 90vw;
+    height: 45vh;
+  }
+
+  .age-number {
+    font-size:
+      clamp(
+        145px,
+        46vw,
+        260px
+      );
+  }
+
+  .click-hint {
+    bottom: 10%;
+    font-size: 8px;
+  }
+
+  .birthday-section {
+    min-height: 100svh;
+
+    padding:
+      90px 18px;
+  }
+
+  .birthday-heading {
+    font-size:
+      clamp(
+        44px,
+        13vw,
+        72px
+      );
+  }
+
+  .birthday-message {
+    font-size: 13px;
+
+    line-height: 1.85;
+  }
+
+  .gold-button {
+    min-height: 50px;
+
+    padding: 0 18px;
+
+    font-size: 9px;
+  }
+
+  .collection-section {
+    padding:
+      85px 14px 100px;
+  }
+
+  .collection-header h2 {
+    font-size:
+      clamp(
+        43px,
+        12vw,
+        70px
+      );
+  }
+
+  .website-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .website-card {
+    border-radius: 16px;
+  }
+
+  .card-preview {
+    height: 220px;
+  }
+
+  .preview-big-text {
+    font-size: 60px;
+  }
+
+  .final-celebration {
+    min-height: 100svh;
+  }
+
+  .celebration-title {
+    font-size:
+      clamp(
+        57px,
+        18vw,
+        100px
+      );
+  }
+
+  .celebration-name {
+    font-size: 12px;
+
+    letter-spacing: .45em;
+  }
+
+  .celebration-copy {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .age-number {
+    font-size: 150px;
+  }
+
+  .birthday-heading {
+    font-size: 43px;
+  }
+
+  .birthday-message {
+    font-size: 12px;
+  }
+
+  .collection-header h2 {
+    font-size: 40px;
+  }
+
+  .gold-button {
+    max-width: 100%;
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    gap: 12px;
+  }
+
+}

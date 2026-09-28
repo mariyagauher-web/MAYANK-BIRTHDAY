@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>19 Websites — Mayank</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       GLOBAL FX
+  ====================================================== -->
+
+  <div class="noise"></div>
+  <div class="gold-aura aura-one"></div>
+  <div class="gold-aura aura-two"></div>
+
+
+  <!-- =====================================================
+       MUSIC
+  ====================================================== -->
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="nastelbom-happy-birthday-471481.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-control" id="musicControl">
+    <span class="music-dot"></span>
+    <span id="musicText">MUSIC</span>
+  </button>
+
+
+  <!-- =====================================================
+       CURTAIN INTRO
+       NO TEXT / NO WHITE CIRCLE
+  ====================================================== -->
+
+  <section class="curtain-intro" id="curtainIntro">
+
+    <div class="red-curtain curtain-left"></div>
+    <div class="red-curtain curtain-right"></div>
+
+  </section>
+
+
+  <!-- =====================================================
+       MAIN EXPERIENCE
+  ====================================================== -->
+
+  <main id="main">
+
+    <!-- ===================================================
+         AGE REVEAL
+    ==================================================== -->
+
+    <section class="age-stage" id="ageStage">
+
+      <div class="neon-halo"></div>
+
+      <div class="age-wrapper" id="ageWrapper">
+
+        <div class="age-number" id="age18">
+          18
+        </div>
+
+        <div class="age-number age-number-19" id="age19">
+          19
+        </div>
+
+        <!-- Explosion shards -->
+        <div class="shard-container" id="shardContainer"></div>
+
+      </div>
+
+      <div class="click-hint" id="clickHint">
+        CLICK TO CONTINUE
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         BIRTHDAY MESSAGE
+    ==================================================== -->
+
+    <section class="birthday-section" id="birthdaySection">
+
+      <div class="birthday-content">
+
+        <div class="gold-kicker">
+          CHAPTER NINETEEN
+        </div>
+
+        <h1 class="birthday-heading">
+          HAPPY BIRTHDAY
+          <span>MAYANK</span>
+        </h1>
+
+        <div class="gold-divider"></div>
+
+        <div class="birthday-message">
+
+          <p>
+            Happy birthday Monkey! 🎉🎂
+          </p>
+
+          <p>
+            Web bnane jaau tere liye to kon si bnau saare ideas tune
+            dekh rakhe hai. Isliye me badi confuse thi kya bnau tere liye
+            ofcourse tere liye kuch alag kuch unique sa to hona hi chahiye
+            so koi ek web select karna to tough tha.
+          </p>
+
+          <p>
+            Isliye mene tere 19th birthday pe tere liye
+            <strong>19 websites</strong> bnayi h saare concept repeted h
+            kyuki mere paas ek hi dimag h kha se laau new idea
+            isliye jo bhi yhi h.
+          </p>
+
+          <p>
+            Hope you like it ❤️
+          </p>
+
+        </div>
+
+        <button class="gold-button" id="openCollection">
+          <span>OPEN THE 19 WEBSITES</span>
+          <i>↗</i>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         19 WEBSITES
+    ==================================================== -->
+
+    <section class="collection-section" id="collectionSection">
+
+      <div class="collection-header">
+
+        <div class="collection-pill">
+          <span></span>
+          A LITTLE COLLECTION
+        </div>
+
+        <h2>
+          19 WEBSITE
+          <em>DEDICATE TO MAYANK</em>
+        </h2>
+
+        <p>
+          O idiot ek ek karke serial wise dekhiyo.
+        </p>
+
+      </div>
+
+
+      <div class="website-grid" id="websiteGrid"></div>
+
+
+      <div class="collection-end">
+
+        <div class="end-line"></div>
+
+        <button class="gold-button final-button" id="openCelebration">
+          <span>ONE LAST SURPRISE</span>
+          <i>✦</i>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FINAL CELEBRATION
+         NO CAKE
+         FIREWORKS ONLY
+    ==================================================== -->
+
+    <section class="final-celebration" id="finalCelebration">
+
+      <canvas id="fireworksCanvas"></canvas>
+
+      <div class="celebration-stars"></div>
+
+      <div class="celebration-content">
+
+        <div class="celebration-kicker">
+          THE FINAL CHAPTER
+        </div>
+
+        <h2 class="celebration-title">
+          HAPPY
+          <span>BIRTHDAY</span>
+        </h2>
+
+        <div class="celebration-name">
+          MAYANK
+        </div>
+
+        <div class="celebration-rule"></div>
+
+        <p class="celebration-copy">
+          19 years. 19 websites.
+          <br>
+          One very special idiot.
+        </p>
+
+        <p class="celebration-small">
+          Hope you like this little madness. ❤️
+        </p>
+
+        <button class="replay-button" id="replayButton">
+          EXPERIENCE AGAIN ↻
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       GSAP
+  ====================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+  <script src="script1.js"></script>
+
+</body>
+</html>
