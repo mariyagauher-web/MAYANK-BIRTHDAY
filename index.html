@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Make A Wish</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- THREE.JS WORLD -->
+  <div id="world"></div>
+
+  <!-- CINEMATIC INTRO -->
+  <div class="intro" id="intro">
+    <div class="intro-glow"></div>
+
+    <div class="intro-content">
+      <div class="intro-heart">♥</div>
+      <div class="intro-line"></div>
+      <p>TONIGHT IS A LITTLE DIFFERENT</p>
+      <h1>Something magical<br>is waiting for you</h1>
+      <span>let's start..... </span>
+      
+    </div>
+  </div>
+
+  <!-- AMBIENT FX -->
+  <div class="vignette"></div>
+  <div class="grain"></div>
+  <div class="bloom"></div>
+
+  <!-- TOP CONTROLS -->
+  <div class="top-controls">
+    <button class="sound-btn" id="soundBtn" aria-label="Toggle sound">
+      <span class="sound-icon">♪</span>
+      <span class="sound-bars">
+        <i></i><i></i><i></i><i></i>
+      </span>
+    </button>
+  </div>
+
+  <!-- SIDE DECORATIONS -->
+  <div class="decor decor-left">
+    <div class="balloon balloon-one"></div>
+    <div class="balloon balloon-two heart-balloon">♥</div>
+    <div class="balloon balloon-three"></div>
+    <div class="ribbon ribbon-one"></div>
+    <div class="lantern lantern-one"></div>
+    <div class="flower flower-one">✿</div>
+  </div>
+
+  <div class="decor decor-right">
+    <div class="balloon balloon-four"></div>
+    <div class="balloon balloon-five heart-balloon">♥</div>
+    <div class="balloon balloon-six"></div>
+    <div class="ribbon ribbon-two"></div>
+    <div class="lantern lantern-two"></div>
+    <div class="flower flower-two">✿</div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="experience">
+
+    <header class="hero">
+      <div class="ornament">
+        <span></span>
+        <b>♥</b>
+        <span></span>
+      </div>
+
+      <p class="eyebrow">A LITTLE MOMENT OF MAGIC</p>
+
+      <h1 id="mainTitle">Make A Wish</h1>
+
+      <p class="subtitle">
+        One wish. One candle. One beautiful moment.
+      </p>
+
+      <div class="hero-heart">♥</div>
+    </header>
+
+    <!-- CAKE SCENE -->
+    <section class="cake-scene" id="cakeScene">
+
+      <div class="camera-glow"></div>
+
+      <div class="cake-shadow"></div>
+
+      <!-- CAKE -->
+      <div class="cake" id="cake">
+
+        <!-- UPPER TIER -->
+        <div class="tier tier-top">
+
+          <div class="cake-sponge top-sponge"></div>
+
+          <div class="cream cream-top"></div>
+
+          <div class="chocolate-layer chocolate-top"></div>
+
+          <div class="cream cream-top-2"></div>
+
+          <div class="chocolate-drips">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="top-decoration">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+
+        </div>
+
+        <!-- LOWER TIER -->
+        <div class="tier tier-bottom">
+
+          <div class="cake-sponge bottom-sponge"></div>
+
+          <div class="cream cream-bottom"></div>
+
+          <div class="chocolate-layer chocolate-bottom"></div>
+
+          <div class="cream cream-bottom-2"></div>
+
+          <div class="chocolate-drips bottom-drips">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="cake-decor">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+
+        </div>
+
+        <!-- CHERRIES -->
+        <div class="cherries">
+          <b></b>
+          <b></b>
+          <b></b>
+          <b></b>
+        </div>
+
+        <!-- CHOCOLATE PIECES -->
+        <div class="chocolate-pieces">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+
+        <!-- HEART DECOR -->
+        <div class="cake-hearts">
+          <span>♥</span>
+          <span>♥</span>
+          <span>♥</span>
+        </div>
+
+        <!-- CANDLE -->
+        <div class="candle-wrap" id="candleWrap">
+
+          <div class="candle">
+
+            <div class="candle-stripes"></div>
+
+            <div class="wick"></div>
+
+            <div class="flame" id="flame">
+              <div class="flame-inner"></div>
+            </div>
+
+            <div class="smoke" id="smoke">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+
+          </div>
+
+          <div class="candle-light"></div>
+        </div>
+
+        <!-- PLATE -->
+        <div class="plate">
+          <div class="plate-inner"></div>
+        </div>
+
+        <!-- KNIFE -->
+        <div class="knife" id="knife">
+          <div class="knife-handle"></div>
+          <div class="knife-blade"></div>
+        </div>
+
+        <!-- SLICE -->
+        <div class="cake-slice" id="cakeSlice">
+          <div class="slice-body"></div>
+          <div class="slice-cream"></div>
+          <div class="slice-chocolate"></div>
+        </div>
+
+      </div>
+
+      <!-- FOREGROUND PARTICLES -->
+      <div class="scene-particles" id="sceneParticles"></div>
+
+    </section>
+
+    <!-- WISH AREA -->
+    <section class="wish-area">
+
+      <div class="wish-line">
+        <span></span>
+        <b>♥</b>
+        <span></span>
+      </div>
+
+      <p class="wish-text" id="wishText">
+        Close your eyes and make a wish...
+        <strong>don't skip make a wish fast</strong>
+      </p>
+
+      <div class="status-message" id="statusMessage"></div>
+
+      <!-- ACTIONS -->
+      <div class="actions">
+
+        <button class="action-btn wish-btn" id="wishBtn">
+          <span class="btn-shine"></span>
+          <span class="btn-icon">✦</span>
+          <span>Make A Wish</span>
+        </button>
+
+        <button class="action-btn blow-btn" id="blowBtn">
+          <span class="btn-shine"></span>
+          <span class="btn-icon">♡</span>
+          <span>Blow The Candle</span>
+        </button>
+
+        <button class="action-btn cut-btn locked" id="cutBtn">
+          <span class="btn-shine"></span>
+          <span class="btn-icon">✧</span>
+          <span>Cut The Cake</span>
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ENDING -->
+  <section class="ending" id="ending">
+
+    <div class="ending-particles"></div>
+
+    <div class="ending-content">
+
+      <div class="ending-heart">♥</div>
+
+      <div class="ending-line"></div>
+
+      <p>A MOMENT TO REMEMBER</p>
+
+      <h2>
+        Some moments are meant<br>
+        to be wished for...
+      </h2>
+
+      <div class="ending-divider">✦</div>
+
+      <h3>Happy Birthday <span>♥</span></h3>
+
+      <p class="ending-message">
+        May every beautiful wish<br>
+        find its way to you.And may your smile never fade 
+      </p>
+
+
+      <a
+  id="againBtn"
+  href="#"
+       >
+  <span>BACK TO MAIN PAGE</span>
+  <b>↗</b>
+  </a>
+
+    </div>
+  </section>
+
+  <audio id="bgMusic" loop preload="auto">
+  <source src="nastelbom-happy-birthday-471481.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- FLASH -->
+  <div class="flash" id="flash"></div>
+
+  <!-- LIBRARIES -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="script.js"></script>
+
+
+</body>
+</html>
