@@ -45,6 +45,7 @@ let masterGain = null;
 /* =========================================================
    UI SOUND — SAFE WEB AUDIO
 ========================================================= */
+
 function ensureAudioContext() {
   if (!audioContext) {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -1143,19 +1144,17 @@ function createEndingParticles() {
 
 /* =========================================================
    AGAIN
-========================================================= */
+========================================================= 
 
 againBtn.addEventListener(
   "click",
   (event) => {
 
-    /* The supplied HTML contains a placeholder URL, so do not
-       navigate to a fake domain. Restart the experience instead. */
     event.preventDefault();
     location.reload();
 
   }
-);
+);*/
 
 /* =========================================================
    BACKGROUND MUSIC
@@ -1167,7 +1166,6 @@ bgMusic.volume = 0.38;
 
 let musicStarted = false;
 
-/* Try to start music immediately */
 function startBackgroundMusic() {
 
   if (musicStarted) return;
@@ -1184,17 +1182,11 @@ function startBackgroundMusic() {
     })
     .catch(() => {
 
-      /*
-        Browser blocked autoplay.
-        It will start automatically on
-        the first user interaction.
-      */
+      /* Browser blocked autoplay */
 
     });
 }
 
-
-/* Start as soon as possible */
 window.addEventListener("load", () => {
 
   setTimeout(() => {
@@ -1203,8 +1195,6 @@ window.addEventListener("load", () => {
 
 });
 
-
-/* Fallback for browser autoplay blocking */
 function firstInteractionMusic() {
 
   if (!musicStarted) {
@@ -1244,7 +1234,6 @@ document.addEventListener(
   firstInteractionMusic,
   { once: true }
 );
-
 
 /* =========================================================
    SOUND BUTTON
@@ -1289,6 +1278,7 @@ soundBtn.addEventListener(
 
   }
 );
+
 /* =========================================================
    MOUSE PARALLAX
 ========================================================= */
@@ -1307,7 +1297,6 @@ window.addEventListener(
         window.innerHeight -
         .5) * 2;
 
-    /* DOM decoration depth */
     gsap.to(
       ".decor-left",
       {
@@ -1468,15 +1457,31 @@ window.addEventListener(
 );
 
 /* =========================================================
-   INITIAL CAKE ENTRANCE
+   INITIAL CAKE ENTRANCE — FIXED
 ========================================================= */
+
+/*
+   IMPORTANT FIX:
+   Cake is no longer hidden initially.
+   Previously:
+      opacity: 0
+      y: 80
+      scale: .82
+
+   That was causing the cake to disappear / not remain
+   visible correctly after the intro.
+
+   Now the cake starts fully visible.
+*/
 
 gsap.set(
   cake,
   {
-    opacity: 0,
-    y: 80,
-    scale: .82
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    rotationX: 5,
+    rotationY: 0
   }
 );
 
@@ -1510,17 +1515,10 @@ gsap.timeline({
   }
 )
 
-.to(
-  cake,
-  {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    duration: 1.5,
-    ease: "back.out(1.25)"
-  },
-  "-=.55"
-)
+/*
+   Cake reveal tween removed intentionally.
+   Cake is already visible and should NOT be hidden.
+*/
 
 .to(
   ".wish-area",
